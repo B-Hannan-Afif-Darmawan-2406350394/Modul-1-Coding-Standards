@@ -19,4 +19,21 @@ public class ProductRepository {
     public Iterator<Product> findAll(){
         return productData.iterator();
     }
+
+    public Product findById(String id){
+        for (Product product : productData){
+            if (product.getProductId().equals(id)) return product;
+        }
+        return null;
+    }
+
+    public Product edit(Product product){
+        Product updatedProduct = findById(product.getProductId());
+        if (updatedProduct == null) throw new RuntimeException("Product not found");
+
+        updatedProduct.setProductName(product.getProductName());
+        updatedProduct.setProductQuantity(product.getProductQuantity());
+
+        return product;
+    }
 }
