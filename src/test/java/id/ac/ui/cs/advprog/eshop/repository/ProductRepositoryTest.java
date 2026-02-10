@@ -75,7 +75,7 @@ class ProductRepositoryTest{
         productRepository.create(product);
 
         Product updatedProduct = new Product();
-        updatedProduct.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6"); // ID harus sama
+        updatedProduct.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
         updatedProduct.setProductName("Sampo Cap Bambang Baru");
         updatedProduct.setProductQuantity(200);
         productRepository.edit(updatedProduct);
@@ -106,7 +106,7 @@ class ProductRepositoryTest{
         productRepository.delete("eb558e9f-1c39-460e-8860-71af6af63bd6");
 
         Iterator<Product> productIterator = productRepository.findAll();
-        assertFalse(productIterator.hasNext()); // List harus kosong
+        assertFalse(productIterator.hasNext());
     }
 
     @Test
