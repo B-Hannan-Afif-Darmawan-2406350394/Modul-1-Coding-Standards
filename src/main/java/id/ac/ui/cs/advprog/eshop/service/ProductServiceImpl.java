@@ -46,4 +46,11 @@ public class ProductServiceImpl implements ProductService {
         productRepository.edit(product);
         return product;
     }
+
+    @Override
+    public Product delete(String id){
+        Product product = productRepository.findById(id);
+        productRepository.delete(id);
+        return product;
+    }
 }
