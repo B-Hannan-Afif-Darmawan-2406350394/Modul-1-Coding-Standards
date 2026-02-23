@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.util.Iterator;
 
@@ -114,5 +113,20 @@ class ProductRepositoryTest{
         Product result = productRepository.delete("random-id");
 
         assertNull(result);
+    }
+
+    @Test
+    void testFindByIdIfMoreThanOneProduct(){
+        Product product1 = new Product();
+        product1.setProductId("123");
+        productRepository.create(product1);
+
+        Product product2 = new Product();
+        product2.setProductId("456");
+        productRepository.create(product2);
+
+        Product found = productRepository.findById("456");
+
+        assertEquals(found, product2);
     }
 }
