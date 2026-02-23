@@ -83,8 +83,8 @@ tasks.jacocoTestReport {
 
 sonar {
     properties {
-        property("sonar.projectKey", "b-hannan-afif-darmawan-2406350394")
-        property("sonar.organization", "B-Hannan Afif Darmawan-2406350394")
+        property("sonar.projectKey", "B-Hannan-Afif-Darmawan-2406350394_Modul-1-Coding-Standards")
+        property("sonar.organization", "b-hannan-afif-darmawan-2406350394")
         property("sonar.host.url", "https://sonarcloud.io")
     }
 }
