@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Setter
-class Car {
+public class Car {
     private String carId;
     private String carName;
     private String carColor;
