@@ -104,6 +104,4 @@ class CarController extends ProductController{
         carservice.deleteCarById(carId);
         return "redirect:listCar";
     }
-
-
 }
