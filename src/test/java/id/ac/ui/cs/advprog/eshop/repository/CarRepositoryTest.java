@@ -6,6 +6,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.Iterator;
@@ -15,15 +16,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(MockitoExtension.class)
 class CarRepositoryTest {
-
-    @InjectMocks
     CarRepository carRepository;
-
     Car car1;
     Car car2;
 
     @BeforeEach
     void setUp(){
+        carRepository = new CarRepositoryImpl();
+
         car1 = new Car();
         car1.setCarId("123");
         car1.setCarName("Ferrari");
@@ -40,9 +40,9 @@ class CarRepositoryTest {
     @Test
     void testCreateIfCarIdNull(){
         Car car = new Car();
-        car2.setCarName("Mustang");
-        car2.setCarColor("Pink");
-        car2.setCarQuantity(2);
+        car.setCarName("Mustang");
+        car.setCarColor("Pink");
+        car.setCarQuantity(2);
 
         carRepository.create(car);
         Iterator<Car> carIterator = carRepository.findAll();
