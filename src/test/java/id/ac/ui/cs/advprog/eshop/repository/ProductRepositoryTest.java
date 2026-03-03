@@ -14,7 +14,6 @@ import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(MockitoExtension.class)
 class ProductRepositoryTest{
 
-    @InjectMocks
     ProductRepository productRepository;
 
     Product product1;
@@ -22,6 +21,7 @@ class ProductRepositoryTest{
 
     @BeforeEach
     void setUp(){
+        productRepository = new ProductRepositoryImpl();
         product1 = new Product();
         product1.setProductId("eb558e9f-1c39-460e-8860-71af6af63bd6");
         product1.setProductName("Sampo Cap Bambang");

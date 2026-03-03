@@ -33,7 +33,7 @@ Setau saya tidak ada angka fix, namun ada beberapa jenis yang perlu dibuat:
 ## Functional Test Cleanliness
 Cleanliness pada kode tersebut akan berkurang, karena melanggar prinsip **DRY (Don't Repeat Yourself)** dan menurunkan kualitas kode.
 
-# Reflection 3 (MODULE 2)
+# Reflection (MODULE 2)
 
 ## Code Quality Issues & Strategy
 1. Redundant declaration of thrown exception\
@@ -54,4 +54,25 @@ Alasan:
 3. **Fast Feedback**: Karena workflow ini dijalankan setiap push, developer langsung mendapatkan notifikasi (Green/Red checklist) jika ada kode yang rusak.
 4. **Automated Delivery**: Walaupun tidak ada YAML khusus deploy, tapi repository ini sudah diintegrasikan dengan Railway (PaaS) pada branch main. 
 
+# Reflection (MODULE 3)
 
+## Applied principles
+1. SRP (Single Responsibility Principle)
+
+Advantage:
+- Karena satu file hanya ada class yang berhubungan, maka mudah di manage.
+(contoh: karena nama filenya carcontroller maka orang lain bisa tau kalau itu yang bertanggungjawab di class CarController.
+
+Disadvantage of not applying:
+- Karena satu file ada class yang tidak berhubungan, maka sulit untuk di manage.
+  (contoh: sulit untuk tau bahwa ada CarController di dalam file productController)
+
+2. OCP (Open-Close Principle)
+
+Advantage:
+- Kalau ada carRepository jenis lain, tidak perlu memodifikasi yang lama.
+  (contoh: Jika ingin buat car repository untuk database, tinggal implements interfacenya `CarRepository`)
+
+Disadvantage of not applying:
+- Jika ingin menambah repository jenis lain, maka perlu untuk memodifikasi yang lama.
+  (contoh: Jika ingin buat car repository untuk database, harus memodifikasi kode logic lamanya (service))
